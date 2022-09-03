@@ -1,0 +1,23 @@
+{
+    "name": "hostedhooks/hostedhooks-php",
+    "description": "PHP package for HostedHooks API",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "HostedHooks\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HostedHooks\\Tests\\": "tests/"
+        }
+    }
+}
