@@ -65,11 +65,15 @@ class HostedHooksClient
 
     private function handleResponse(ResponseInterface $response): array
     {
-        return [
-            'errors' => $response->getStatusCode() >= 400,
-            'response' => $response,
-            'status' => $response->getStatusCode(),
-            'body' => $response->getBody()->getContents(),
-        ];
+        $body = json_decode($response->getBody()->getContents(),true);
+
+        if ($response->getStatusCode() >= 400) {
+            return [
+                'error' => $body['message'],
+                'status' => $response->getStatusCode()
+            ];
+        }
+
+        return $body;
     }
 }
