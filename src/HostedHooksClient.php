@@ -14,11 +14,11 @@ class HostedHooksClient
 
     public Client $client;
 
-    public function __construct(string $apiKey)
+    public function __construct(string $apiKey, Client $client = null)
     {
         $this->apiKey = $apiKey;
 
-        $this->client = new Client([
+        $this->client = $client ?: new Client([
             'base_uri' => self::API_ENDPOINT,
             'timeout' => 3,
             'headers' => [
